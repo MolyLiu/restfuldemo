@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping(value = "/api/user")
+@RequestMapping(value = "/api")
 public class UserController {
 
 //    @autowired 和 @resouce 前者是按照类型装配，就是加入一个类有两个实现类，就无法查找具体的实现类。
@@ -26,22 +26,22 @@ public class UserController {
         return "welcome";
     }
 
-    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
     public boolean addUser( User user) {
         System.out.println("开始新增...");
         return userService.addUser(user);
     }
 
-    @RequestMapping(value = "/updateUser", method = RequestMethod.PUT)
+    @RequestMapping(value = "/user", method = RequestMethod.PUT)
     public boolean updateUser( User user) {
         System.out.println("开始更新...");
         return userService.updateUser(user);
     }
 
-    @RequestMapping(value = "/deleteUser", method = RequestMethod.DELETE)
-    public boolean delete(@RequestParam(value = "userId", required = true) int userId) {
+    @RequestMapping(value = "/user", method = RequestMethod.DELETE)
+    public boolean delete(@RequestParam(value = "id", required = true) int id) {
         System.out.println("开始删除...");
-        return userService.deleteUser(userId);
+        return userService.deleteUser(id);
     }
 
     @RequestMapping(value = "/userName", method = RequestMethod.GET)
