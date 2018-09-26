@@ -3,8 +3,6 @@ package com.lyk.restfuldemo.service.impl;
 import com.lyk.restfuldemo.bean.User;
 import com.lyk.restfuldemo.dao.UserDao;
 import com.lyk.restfuldemo.service.UserService;
-import org.hibernate.validator.constraints.pl.REGON;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
