@@ -2,6 +2,9 @@ package com.lyk.restfuldemo.controller;
 
 import com.lyk.restfuldemo.bean.User;
 import com.lyk.restfuldemo.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
+@Api(value = "/api",tags = "用户接口模块")
 @RestController
 @RequestMapping(value = "/api")
 public class UserController {
@@ -26,6 +30,8 @@ public class UserController {
         return "welcome";
     }
 
+    @ApiOperation(value = "新增用户信息",notes = "新增用户信息")
+    @ApiImplicitParam(name = "user",value = "User",required = true,dataType = "User")
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public boolean addUser( User user) {
         System.out.println("开始新增...");
